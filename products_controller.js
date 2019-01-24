@@ -1,9 +1,9 @@
 module.exports = {
     create: ( req, res, next ) => {
       const dbInstance = req.app.get('db');
-      const { name, description, price, image_url: image_ur } = req.body;
-      console.log(image_ur)
-      dbInstance.create_product([ name, description, price, image_ur ])
+      const { name, description, price, image_url } = req.body;
+      console.log(image_url)
+      dbInstance.create_product([ name, description, price, image_url ])
         .then( () => res.sendStatus(200) )
         .catch( err => {
           res.status(500).send({errorMessage: "Oops! it's a disaster"});
